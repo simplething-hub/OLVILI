@@ -106,7 +106,6 @@ def load_data(args,device):
     df = pd.read_excel('./original_data_p6.xlsx')
     X = df.iloc[1:, :-1]
     y = df.iloc[1:, -1].values
-    # 归一化
     scaler = MinMaxScaler()
     X = scaler.fit_transform(X)
     view = 3
@@ -118,7 +117,6 @@ def load_data(args,device):
     # adj = adj + adj.T.multiply(adj.T > adj) - adj.multiply(adj.T > adj)
     # adj_hat, lp = construct_adj_hat(adj)
     idx_labeled, idx_unlabeled = generate_partition(labels=y, ratio=0.8, seed=42)
-    # 划分视图特征
     # X_1 = X[:, 0:15]
     # X_2 = X[:, 15:17]
     # X_3 = X[:, 17:]
